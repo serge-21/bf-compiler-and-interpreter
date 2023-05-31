@@ -1,7 +1,7 @@
 // An Interpreter for the Brainfuck language
 //==============================================
 
-object M5a {
+object BFI {
 
 // representation of BF memory 
 type Mem = Map[Int, Int]
@@ -9,15 +9,15 @@ type Mem = Map[Int, Int]
 import io.Source
 import scala.util._
 
-// (1)
+// Load Brainfuck program from file
 def load_bff(name: String) : String = Try(Source.fromFile(name)("ISO-8859-1").mkString).getOrElse("")
 
-// (2) 
+// Read and write operations on memory
 def sread(mem: Mem, mp: Int) : Int = mem.getOrElse(mp, 0)
 
 def write(mem: Mem, mp: Int, v: Int) : Mem = mem + (mp -> v)
 
-// (3) 
+// Find matching brackets in Brainfuck program
 def jumpRight(prog: String, pc: Int, level: Int) : Int = { 
     if (prog.length == pc) pc else {
         prog match {
@@ -38,7 +38,7 @@ def jumpLeft(prog: String, pc: Int, level: Int) : Int = {
     }
 }
 
-// (4) 
+// Interpret and execute Brainfuck program
 def compute(prog: String, pc: Int, mp: Int, mem: Mem) : Mem = {
     if (pc < 0 || pc >= prog.length) mem else {
         prog match {
@@ -59,6 +59,6 @@ def compute(prog: String, pc: Int, mp: Int, mem: Mem) : Mem = {
 
 def run(prog: String, m: Mem = Map()) = compute(prog, 0, 0, m)
 
-// (5)
+// Generate Brainfuck program to print characters
 def generate(msg: List[Char]) : String = msg.map(c => ("+" * c.toInt) ++ ".[-]").mkString
 }
