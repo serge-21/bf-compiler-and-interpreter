@@ -2,7 +2,6 @@
 //==============================================
 
 object BFI {
-    
     import io.Source
     import scala.util._
 
