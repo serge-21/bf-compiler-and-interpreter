@@ -1,4 +1,5 @@
 # Compiler tests
+
 ```scala
 jtable("""+++++[->++++++++++<]>--<+++[->>++++++++++<<]>>++<<----------[+>.>.<+<]""") =>  Map(69 -> 61, 5 -> 20, 60 -> 70, 27 -> 44, 43 -> 28, 19 -> 6)
 
@@ -20,6 +21,7 @@ time_needed(1, run4(load_bff("mandelbrot.bf")))
 ```
 
 # Interpreter tests
+
 ```scala
 // testcases 
 jumpRight("""--[..+>--],>,++""", 3, 0)         // => 10
@@ -31,6 +33,7 @@ jumpLeft("""[******]***""", 7, 0)              // => -1 (outside)
 ```
 
 ## Some sample bf-programs collected from the Internet
+
 - some contrived (small) programs
 
 ```scala
@@ -48,6 +51,7 @@ run("""+++++[->++++++++++<]>--<+++[->>++++++++++<<]>>++<<----------[+>.>.<+<]"""
 ```
 
 - some more "useful" programs
+
 ```scala
 // hello world program 1
 run("""++++++++[>++++[>++>+++>+++>+<<<<-]>+>+>->>+[<]<-]>>.>---.+++++++..+++.>>.<-.<.+++.------.--------.>>+.>++.""")
@@ -62,7 +66,8 @@ run("""+++++++++[>++++++++>+++++++++++>+++++<<<-]>.>++.+++++++..+++.>-.---------
 run(load_bff("sierpinski.bf"))
 ```
 
- - bigger programs
+- bigger programs
+
 ```scala
 // fibonacci numbers below 100
 run("""+++++++++++
