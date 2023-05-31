@@ -2,6 +2,8 @@
 //============================================================
 
 object BFC {
+    import io.Source
+    import scala.util._
 
     // for timing purposes
     def time_needed[T](n: Int, code: => T) = {
@@ -12,9 +14,6 @@ object BFC {
     }
 
     type Mem = Map[Int, Int]
-
-    import io.Source
-    import scala.util._
 
     //====================== 
     // a couple of functions taken from bf_interpreter.scala
